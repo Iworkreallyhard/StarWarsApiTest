@@ -37,7 +37,7 @@ public class ConnectionManager {
         return statusCode;
     }
 
-    public HttpResponse getHttpResponse(String url){
+    public static HttpResponse getHttpResponse(String url){
 
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(url)).build();
@@ -52,15 +52,15 @@ public class ConnectionManager {
         }
         return null;
     }
-    public int getStatus(String url){
+    public static int getStatus(String url){
         return getHttpResponse(url).statusCode();
     }
 
-    public HttpHeaders getHeaders(String url){
+    public static HttpHeaders getHeaders(String url){
 
         return getHttpResponse(url).headers();
     }
-    public String getBody(String url){
+    public static String getBody(String url){
         return (String) getHttpResponse(url).body();
     }
 

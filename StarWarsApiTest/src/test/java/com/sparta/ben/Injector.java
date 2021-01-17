@@ -15,23 +15,19 @@ import java.net.URL;
 public class Injector {
 
     private static final String BASEURL = "https://swapi.dev/api/";
-    private static final String URL = "https://swapi.dev/api/people/1/";
+    private static final String url = "https://swapi.dev/api/people/1/";
     private static String endPoint;
     //private String URL;
 
     public static PersonDTO injectPersonPOJO(String url){
 
-        HttpClient httpClient = HttpClient.newHttpClient();
-        HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(url)).build();
-
         PersonDTO personDTO = new PersonDTO();
         ObjectMapper objectMapper = new ObjectMapper();
 
         try{
-            HttpResponse<String> httpResponse = httpClient.send(httpRequest,HttpResponse.BodyHandlers.ofString());
-            personDTO = objectMapper.readValue(httpResponse.body(), PersonDTO.class);
+            personDTO = objectMapper.readValue(ConnectionManager.getBody(url), PersonDTO.class);
 
-        }catch(IOException |InterruptedException e){
+        }catch(IOException e){
             e.printStackTrace();
         }
         return personDTO;

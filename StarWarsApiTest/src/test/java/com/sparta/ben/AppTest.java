@@ -3,9 +3,9 @@ package com.sparta.ben;
 import static org.junit.Assert.assertTrue;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,7 +18,7 @@ public class AppTest
 
     @BeforeEach
     void setup(){
-        Injector.injectPersonPOJO("https://swapi.dev/api/people/1/");
+        personDTO = Injector.injectPersonPOJO("https://swapi.dev/api/people/1/");
     }
 
     @Test

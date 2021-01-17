@@ -36,6 +36,4 @@ public class Injector {
         }
         return personDTO;
     }
-
-    public static
 }

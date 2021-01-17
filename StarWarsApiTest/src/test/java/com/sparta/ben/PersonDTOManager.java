@@ -23,6 +23,4 @@ public class PersonDTOManager {
         }
         count++;
     }
-
-    public static ArrayList<PersonDTO>
 }
